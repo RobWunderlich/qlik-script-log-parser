@@ -1591,7 +1591,7 @@ resources
 	}
 
 resource			= name:(
-						lib:'lib://' res:[^ \t\r\n()]+		{ return { value: lib + res.join(''), 					txt: () => computeText(arguments) }; }
+						lib:'lib://'* res:[^ \t\r\n()]+		{ return { value: lib + res.join(''), 					txt: () => computeText(arguments) }; }
 						/ name:('@'? alphanum)				{ return { value: (name[0] ? name[0] : '') + name[1], 	txt: () => computeText(arguments) }; }
 						/ name:braceQuoteString				
 						/ name:doubleQuoteString
